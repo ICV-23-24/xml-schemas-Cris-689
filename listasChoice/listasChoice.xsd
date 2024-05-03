@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="TipoCodigo">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z]{3}-[a-zA-Z]{3}-\d{3}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="articulos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="monitor">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+                <xs:element name="resolucion">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="ancho" type="xs:positiveInteger" />
+                      <xs:element name="alto" type="xs:positiveInteger" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="codigo" type="TipoCodigo" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="teclado">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+              </xs:sequence>
+              <xs:attribute name="codigo" type="TipoCodigo" use="optional" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="raton">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="descripcion" type="xs:string" />
+                <xs:element name="peso">
+                  <xs:complexType>
+                    <xs:simpleContent>
+                      <xs:extension base="xs:positiveInteger">
+                        <xs:attribute name="unidad" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="g" />
+                              <xs:enumeration value="cg" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:extension>
+                    </xs:simpleContent>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+              <xs:attribute name="codigo" type="TipoCodigo" use="optional" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="fechageneracion" type="xs:date" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
