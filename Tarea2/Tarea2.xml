@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE archivoxml [
+    <!ELEMENT archivoxml (afiliado+)>
+    <!ELEMENT afiliado (dni,nombre,apellidos,situacionlaboral,fechadenacimiento,listadodebajas?,listadodeprestacionescobradas*)>
+        <!ELEMENT dni (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT apellidos (#PCDATA)>    
+        <!ELEMENT situacionlaboral (en_paro|en_activo|jubilado|edad_no_laboral)>
+            <!ELEMENT en_paro (#PCDATA)>
+            <!ELEMENT en_activo (#PCDATA)>
+            <!ELEMENT jubilado (#PCDATA)>
+            <!ELEMENT edad_no_laboral (#PCDATA)>
+        <!ELEMENT fechadenacimiento (dia,mes,anio)>
+            <!ELEMENT dia (#PCDATA)>
+            <!ELEMENT mes (#PCDATA)>
+            <!ELEMENT anio (#PCDATA)>
+        <!ELEMENT listadodebajas (causa,fechadeinicio,fechadefinal?)>
+            <!ELEMENT causa (#PCDATA)>
+            <!ELEMENT fechadeinicio (#PCDATA)>
+            <!ELEMENT fechadefinal (#PCDATA)>
+        <!ELEMENT listadodeprestacionescobradas (cantidadpercibida,fechainicio,fechafinal)*>
+            <!ELEMENT cantidadpercibida (#PCDATA)>
+            <!ELEMENT fechainicio (#PCDATA)>
+            <!ELEMENT fechafinal (#PCDATA)>
+]>
+<archivoxml>
+    <afiliado>
+        <dni>12345678A</dni>
+        <nombre>Antonio</nombre>
+        <apellidos>Perez Ruiz</apellidos>
+        <situacionlaboral>
+            <jubilado/>
+        </situacionlaboral>
+        <fechadenacimiento>
+            <dia>11</dia>
+            <mes>12</mes>
+            <anio>1962</anio>
+        </fechadenacimiento>
+    </afiliado>
+    <afiliado>
+        <dni>12345678A</dni>
+        <nombre>Paco</nombre>
+        <apellidos>Martinez Ruiz</apellidos>
+        <situacionlaboral>
+            <jubilado/>
+        </situacionlaboral>
+        <fechadenacimiento>
+            <dia>11</dia>
+            <mes>12</mes>
+            <anio>1960</anio>
+        </fechadenacimiento>
+        <listadodeprestacionescobradas>
+            <cantidadpercibida>500</cantidadpercibida>
+            <fechainicio>05/06/1988</fechainicio>
+            <fechafinal>05/07/1988</fechafinal>
+        </listadodeprestacionescobradas>
+    </afiliado>
+</archivoxml>

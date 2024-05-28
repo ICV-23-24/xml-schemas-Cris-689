@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element  name="cliente" type="tipocliente"/>
+    <xsd:complexType name="tipocliente">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="codigo" type="tipocodigo" use="required"/>
+                <xsd:attribute name="habitual" type="xsd:boolean" use="optional"/>
+                <xsd:attribute name="cantidad" type="tipocantidad" use="optional"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    <xsd:simpleType name="tipocodigo">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[A-Z]{3}[0-9]{3}"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="tipocantidad">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="1000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
