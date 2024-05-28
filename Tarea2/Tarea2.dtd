@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT archivoxml (afiliado+)>
+<!ELEMENT afiliado (dni,nombre,apellidos,situacionlaboral,fechadenacimiento,listadodebajas?,listadodeprestacionescobradas*)>
+    <!ELEMENT dni (#PCDATA)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellidos (#PCDATA)>    
+    <!ELEMENT situacionlaboral (en_paro|en_activo|jubilado|edad_no_laboral)>
+        <!ELEMENT en_paro (#PCDATA)>
+        <!ELEMENT en_activo (#PCDATA)>
+        <!ELEMENT jubilado (#PCDATA)>
+        <!ELEMENT edad_no_laboral (#PCDATA)>
+    <!ELEMENT fechadenacimiento (dia,mes,anio)>
+        <!ELEMENT dia (#PCDATA)>
+        <!ELEMENT mes (#PCDATA)>
+        <!ELEMENT anio (#PCDATA)>
+    <!ELEMENT listadodebajas (causa,fechadeinicio,fechadefinal?)>
+        <!ELEMENT causa (#PCDATA)>
+        <!ELEMENT fechadeinicio (#PCDATA)>
+        <!ELEMENT fechadefinal (#PCDATA)>
+    <!ELEMENT listadodeprestacionescobradas (cantidadpercibida,fechainicio,fechafinal)*>
+        <!ELEMENT cantidadpercibida (#PCDATA)>
+        <!ELEMENT fechainicio (#PCDATA)>
+        <!ELEMENT fechafinal (#PCDATA)>
